@@ -102,6 +102,28 @@
 
     /* ── Sections ───────────────────────────────────── */
     .section { padding: 4rem 0; border-top: 1px solid var(--rule); }
+    #about { border-top: none; padding-top: 0; }
+
+    /* find me */
+    .find-me {
+      margin-top: 2rem;
+    }
+    .find-me-label {
+      font-family: var(--f-mono);
+      font-size: 0.6875rem;
+      color: var(--ink-3);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    /* kpop gif */
+    .kpop-gif {
+      display: block;
+      margin-top: 1rem;
+      width: 120px;
+      border-radius: 8px;
+    }
 
     .section-label {
       font-family: var(--f-mono);
@@ -233,11 +255,6 @@
   <header class="hero">
     <h1 class="hero-name">Hey! I'm Aiden<span class="dot">.</span></h1>
     <p class="hero-role">Data Analyst · Angono, Philippines</p>
-    <ul class="hero-links">
-      <li><a href="mailto:kylegattud@gmail.com">Email</a></li>
-      <li><a href="https://www.linkedin.com/in/aidengattud/" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/kyle-aiden" target="_blank" rel="noopener">GitHub</a></li>
-    </ul>
   </header>
 
   <!-- About -->
@@ -245,7 +262,7 @@
     <p class="section-label" id="about-label">About</p>
     <div class="about-body">
       <p>
-        Jobless Data Analyst and Applied Mathematics graduate from Ateneo de Manila University.
+        <del>Jobless</del> <strong>Data Analyst</strong> and Applied Mathematics graduate from Ateneo de Manila University.
         Previously, I worked in Data Management at Foodpanda Philippines.
       </p>
       <p>
@@ -256,7 +273,16 @@
       <p>
         Outside of work, I enjoy hiking, skateboarding, and racquet and paddle sports —
         though I'm not particularly good at any of them. I'm also a huge K-pop fan. #아이즈원
+        <img class="kpop-gif" src="https://media.giphy.com/media/owQlx7mRmOzO7aFE2l/giphy.gif" alt="IZ*ONE">
       </p>
+    </div>
+    <div class="find-me">
+      <p class="find-me-label">Find me here:</p>
+      <ul class="hero-links">
+        <li><a href="mailto:kylegattud@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/aidengattud/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/kyle-aiden" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
     </div>
   </section>
 
