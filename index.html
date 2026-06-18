@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kyle Aiden Gattud — Data & Analytics professional based in the Philippines. SQL, Python, pipeline automation, BI dashboards.">
+  <title>Kyle Aiden Gattud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Tokens ───────────────────────────────────────── */
+    :root {
+      --bg:        #F8F6F1;
+      --ink:       #18181B;
+      --accent:    #2563EB;
+      --muted:     #71717A;
+      --rule:      #E4E4E7;
+      --tag-bg:    #EFF6FF;
+      --tag-ink:   #1D4ED8;
+
+      --f-display: 'Syne', sans-serif;
+      --f-body:    'Inter', sans-serif;
+      --f-mono:    'JetBrains Mono', monospace;
+
+      --max-w:     760px;
+      --gap:       4rem;
+    }
+
+    /* ── Reset ────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--f-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Layout ───────────────────────────────────────── */
+    .site-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      padding: 5rem 0 3.5rem;
+      animation: rise 0.5s ease both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero { animation: none; }
+    }
+
+    .hero-name {
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    /* The signature element: "A." in accent blue */
+    .hero-name .initial {
+      color: var(--accent);
+    }
+
+    .hero-role {
+      font-family: var(--f-mono);
+      font-size: 0.875rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.125rem;
+      color: var(--ink);
+      max-width: 540px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+    }
+
+    .hero-links a {
+      font-family: var(--f-mono);
+      font-size: 0.8125rem;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      padding: 0.35rem 0.75rem;
+      border-radius: 3px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .hero-links a:hover,
+    .hero-links a:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+      outline: none;
+    }
+
+    /* ── Sections ─────────────────────────────────────── */
+    .section {
+      padding: var(--gap) 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-family: var(--f-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Experience ───────────────────────────────────── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 2rem;
+    }
+
+    .exp-date {
+      font-family: var(--f-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+      line-height: 1.5;
+    }
+
+    .exp-title {
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .exp-org {
+      font-size: 0.875rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.9375rem;
+      color: var(--ink);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rule);
+      font-weight: 400;
+    }
+
+    /* ── Projects ─────────────────────────────────────── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 1.5rem;
+      background: white;
+      transition: border-color 0.15s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+    }
+
+    .project-tag {
+      font-family: var(--f-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tag-ink);
+      background: var(--tag-bg);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-title {
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .project-stack {
+      font-family: var(--f-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: var(--f-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    .project-card--placeholder {
+      border-style: dashed;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-card--placeholder p {
+      font-family: var(--f-mono);
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── Skills ───────────────────────────────────────── */
+    .skills-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .skills-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 1.5rem;
+      align-items: baseline;
+    }
+
+    .skills-row-label {
+      font-family: var(--f-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      font-family: var(--f-mono);
+      font-size: 0.75rem;
+      color: var(--tag-ink);
+      background: var(--tag-bg);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+    }
+
+    /* ── Education + Certs ────────────────────────────── */
+    .edu-item {
+      margin-bottom: 1.75rem;
+    }
+
+    .edu-degree {
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .edu-school {
+      font-size: 0.9375rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-note {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .cert-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .cert-list li {
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .cert-issuer {
+      font-family: var(--f-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── Footer ───────────────────────────────────────── */
+    .site-footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-name {
+      font-family: var(--f-mono);
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--f-mono);
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 600px) {
+      .exp-item {
+        grid-template-columns: 1fr;
+        gap: 0.3rem 0;
+      }
+
+      .exp-date { margin-bottom: 0.4rem; }
+
+      .skills-row {
+        grid-template-columns: 1fr;
+        gap: 0.4rem 0;
+      }
+
+      .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1 class="hero-name">
+      Kyle Aiden<br>
+      <span class="initial">A.</span> Gattud
+    </h1>
+    <p class="hero-role">Data &amp; Analytics · Angono, Philippines</p>
+    <p class="hero-tagline">
+      I build pipelines, automate the repetitive, and turn raw data into decisions that actually get used.
+    </p>
+    <ul class="hero-links">
+      <li><a href="mailto:kylegattud@gmail.com">kylegattud@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/aidengattud/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/kyle-aiden" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </header>
+
+  <!-- Experience -->
+  <section class="section" aria-labelledby="exp-label">
+    <p class="section-label" id="exp-label">Experience</p>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-date">Nov 2022<br>Apr 2024</div>
+        <div>
+          <p class="exp-title">Data Management Associate</p>
+          <p class="exp-org">Foodpanda Philippines</p>
+          <ul class="exp-bullets">
+            <li>Automated the end-to-end vendor payment pipeline using Python and Google Apps Script — eliminating manual handling of 100,000+ rows of raw bank transaction data and cutting processing time by 95%</li>
+            <li>Maintained the Payment Monitoring System dashboard in Looker Studio, consolidating multi-bank data into a single source of truth for vendor payment tracking</li>
+            <li>Built SQL scripts to aggregate large datasets from CRM, ERP, and vendor records — reducing master data errors and surfacing quality trends for management action</li>
+            <li>Designed compliance dashboards flagging unauthorized payment activity across APAC markets; presented findings to management and supported new data governance rollout</li>
+            <li>Served as liaison between internal teams, bank representatives, and Salesforce to design an automated vendor data ingestion pipeline</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Apr 2024<br>Apr 2026</div>
+        <div>
+          <p class="exp-title">Volunteer Team Leader &amp; Trainer</p>
+          <p class="exp-org">The Church of Jesus Christ of Latter-day Saints — Legazpi Philippines Mission</p>
+          <ul class="exp-bullets">
+            <li>Led and coached 20+ volunteers across multiple provinces; set performance goals, tracked weekly metrics, and used data to improve team planning and outcomes</li>
+            <li>Designed and delivered skills and language training for non-native speakers</li>
+            <li>Planned and executed 1,000+ community engagement sessions across diverse communities and provinces</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jul 2021<br>Oct 2022</div>
+        <div>
+          <p class="exp-title">Research Assistant (Project Staff I)</p>
+          <p class="exp-org">Ateneo de Manila University — Mathplus Resources Laboratory</p>
+          <ul class="exp-bullets">
+            <li>Managed financial records and inter-office coordination for a DOST-funded mathematics education research project</li>
+            <li>Supported logistics for online research webinars and maintained the project's digital repository</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" aria-labelledby="proj-label">
+    <p class="section-label" id="proj-label">Projects</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <span class="project-tag">Machine Learning</span>
+        <p class="project-title">Food Insecurity Prediction</p>
+        <p class="project-desc">
+          Undergraduate thesis. Developed and compared Random Forest, SVM, and Logistic Regression models to predict food insecurity among public school households in the Philippines. Identified key contributing factors for policy research.
+        </p>
+        <p class="project-stack">Python · scikit-learn · Random Forest · SVM · Logistic Regression</p>
+        <a class="project-link" href="https://github.com/kyle-aiden" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <div class="project-card project-card--placeholder">
+        <p>More projects coming soon.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" aria-labelledby="skills-label">
+    <p class="section-label" id="skills-label">Skills</p>
+    <div class="skills-groups">
+      <div class="skills-row">
+        <span class="skills-row-label">Languages</span>
+        <div class="skills-tags">
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Google Apps Script</span>
+          <span class="skill-tag">BigQuery</span>
+        </div>
+      </div>
+      <div class="skills-row">
+        <span class="skills-row-label">BI &amp; Visualization</span>
+        <div class="skills-tags">
+          <span class="skill-tag">Looker Studio</span>
+          <span class="skill-tag">Google Looker</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Salesforce</span>
+        </div>
+      </div>
+      <div class="skills-row">
+        <span class="skills-row-label">Automation &amp; AI</span>
+        <div class="skills-tags">
+          <span class="skill-tag">n8n</span>
+          <span class="skill-tag">Pipeline automation</span>
+          <span class="skill-tag">Agentic workflows</span>
+          <span class="skill-tag">LLM APIs</span>
+        </div>
+      </div>
+      <div class="skills-row">
+        <span class="skills-row-label">Tools</span>
+        <div class="skills-tags">
+          <span class="skill-tag">Excel (Advanced)</span>
+          <span class="skill-tag">Google Sheets</span>
+          <span class="skill-tag">SAP</span>
+          <span class="skill-tag">Salesforce CRM</span>
+        </div>
+      </div>
+      <div class="skills-row">
+        <span class="skills-row-label">Methods</span>
+        <div class="skills-tags">
+          <span class="skill-tag">Data cleaning</span>
+          <span class="skill-tag">Pipeline automation</span>
+          <span class="skill-tag">Dashboard development</span>
+          <span class="skill-tag">Data modeling</span>
+          <span class="skill-tag">Machine learning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education + Certs -->
+  <section class="section" aria-labelledby="edu-label">
+    <p class="section-label" id="edu-label">Education &amp; Certifications</p>
+
+    <div class="edu-item">
+      <p class="edu-degree">BS Applied Mathematics</p>
+      <p class="edu-school">Ateneo de Manila University</p>
+      <p class="edu-note">2018 – 2022 · Quezon City, Philippines</p>
+      <p class="edu-note" style="margin-top:0.4rem;">Thesis: Machine Learning for Food Insecurity Prediction</p>
+    </div>
+
+    <ul class="cert-list">
+      <li>
+        <span>AI Skills Fest 2026</span>
+        <span class="cert-issuer">Microsoft · Jun 2026</span>
+      </li>
+      <li>
+        <span>Google Data Analytics Specialization</span>
+        <span class="cert-issuer">Coursera / Google · Sep 2022</span>
+      </li>
+      <li>
+        <span>Introduction to Data Engineering</span>
+        <span class="cert-issuer">Coursera · Sep 2022</span>
+      </li>
+      <li>
+        <span>SQL for Data Science</span>
+        <span class="cert-issuer">Coursera · Sep 2022</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span class="footer-name">Kyle Aiden A. Gattud</span>
+    <ul class="footer-links">
+      <li><a href="mailto:kylegattud@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/aidengattud/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/kyle-aiden" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </footer>
+
+</div>
+</body>
+</html>
